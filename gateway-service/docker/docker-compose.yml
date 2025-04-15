@@ -1,0 +1,19 @@
+services:
+  gateway:
+    container_name: "gateway"
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: gateway:latest
+    ports:
+      - "8080:3000"
+    env_file:
+      - ../.env       
+    environment:
+      - PORT=3000
+    secrets:
+      - nats_user_creds  
+
+secrets:
+  nats_user_creds:
+    file: ./secrets/nats_user.creds      
