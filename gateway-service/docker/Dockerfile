@@ -19,6 +19,7 @@
   # Copy only the binary and .env if necessary
   COPY --from=builder /app/bin/main /app/main
   COPY --from=builder /app/.env /app/.env
+  COPY --from=builder /app/gateway_user.creds /app/gateway_user.creds
   
   # Optional: Enable port
   EXPOSE 3000

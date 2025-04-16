@@ -11,6 +11,11 @@ import (
 
 type SignupUseCase struct {
 	Validator utils.Validator
+	// Publisher is the singleton NATS instance for
+	// calling the implemented methods
+	//
+	// for example => Publisher.Request(topic, message)
+	//
 	Publisher events.EventPublisher
 }
 
