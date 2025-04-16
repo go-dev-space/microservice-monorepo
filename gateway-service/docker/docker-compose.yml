@@ -10,10 +10,4 @@ services:
     env_file:
       - ../.env       
     environment:
-      - PORT=3000
-    secrets:
-      - nats_user_creds  
-
-secrets:
-  nats_user_creds:
-    file: ./secrets/nats_user.creds      
+      - PORT=3000  

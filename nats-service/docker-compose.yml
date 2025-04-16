@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  nats:
+    image: nats:latest
+    container_name: nats-secure
+    ports:
+      - "4222:4222"
+      - "8222:8222" # optional: Monitoring-UI
+    volumes:
+      - ./nats-server.conf:/etc/nats/nats-server.conf
+      - ./config/operator.jwt:/config/operator.jwt
+      - ./config/jwt:/config/jwt
+      - ./jetstream-data:/data/jetstream
+    command: ["-js", "-c", "/etc/nats/nats-server.conf"]
